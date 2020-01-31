@@ -1,0 +1,62 @@
+<RadSideDrawer>
+    <GridLayout tkDrawerContent rows="auto,*" margintop="20">
+        <StackLayout row="0" class="background-image">
+            <Image src="res://side_image" stretch="aspectFit" class="drawer-image"
+            horizontalAlignment="center" verticalAlignment="center"></Image>
+        </StackLayout>
+
+        <ScrollView row="1">
+            <StackLayout class="mm drawer-content" *ngIf="items!=null">
+                <ng-container *ngFor="let item of home">
+                    <Label [text]="item.title" class="drawer-text"></Label>
+                </ng-container>
+                <StackLayout class="hr m-2"></StackLayout>
+                <ng-container *ngFor="let item of alpha">
+                    <Label [text]="item.title" class="drawer-text"></Label>
+                </ng-container>
+                <StackLayout class="hr m-2"></StackLayout>
+                <ng-container *ngFor="let item of secondary">
+                    <Label [text]="item.title" class="drawer-text"></Label>
+                </ng-container>
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+    <GridLayout tkMainContent rows="*,auto">
+        <StackLayout row="0">
+            <page-router-outlet></page-router-outlet>
+        </StackLayout>
+
+        <StackLayout row="1">
+            <GridLayout columns="*,*,*,*" class="mm">
+                <StackLayout col="0">
+                    <GridLayout rows="auto,*" horizontalAlignment="center" verticalAlignment="center"
+                        (tap)="onNavigationTap('/home')" [ngclass]="selected('/home')">
+                        <Image row="0" [src]="selected('/home')?'res://active_home':'res://home'" stretch="aspectFit" class="bot-image"></Image>
+                        <Label row="1" text="Home" [class]="selected('/home')?'-selected':'bot-text'"></Label>
+                    </GridLayout>
+                </StackLayout>
+                <StackLayout col="1">
+                    <GridLayout rows="auto,*" horizontalAlignment="center" verticalAlignment="center"
+                        (tap)="onNavigationTap('/saved')" [ngclass]="selected('/saved')">
+                        <Image row="0" [src]="selected('/saved')?'res://active_saved':'res://saved'" stretch="aspectFit" class="bot-image"></Image>
+                        <Label row="1" text="Saved" [class]="selected('/saved')?'-selected':'bot-text'"></Label>
+                    </GridLayout>
+                </StackLayout>
+                <StackLayout col="2">
+                    <GridLayout rows="auto,*" horizontalAlignment="center" verticalAlignment="center">
+                        <Image row="0" src="res://notification" stretch="aspectFit" class="bot-image"></Image>
+                        <Label row="1" text="Notification" class="mm bot-text"></Label>
+                    </GridLayout>
+                </StackLayout>
+                <StackLayout col="3">
+                    <GridLayout rows="auto,*" horizontalAlignment="center" verticalAlignment="center">
+                        <Image row="0" src="res://search" stretch="aspectFit" class="bot-image"></Image>
+                        <Label row="1" text="Search" class="mm bot-text"></Label>
+                    </GridLayout>
+                </StackLayout>
+            </GridLayout>
+        </StackLayout>
+    </GridLayout>
+
+</RadSideDrawer>

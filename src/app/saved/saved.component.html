@@ -1,0 +1,23 @@
+<GridLayout rows="auto,*">
+    <StackLayout row="0">
+        <ActionBar title="" backgroundcolor="white">
+            <NavigationButton ios:visibility="collasped" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+            <Image src="res://title" stretch="aspectFit" class="top-image"></Image>
+            <ActionItem text="Settings" android.position="popup"></ActionItem>
+            <ActionItem text="Notifications" android.position="popup"></ActionItem>
+            <ActionItem text="Help" android.position="popup"></ActionItem>
+            <ActionItem text="FAQ" android.position="popup"></ActionItem>
+            <ActionItem text="About" android.position="popup"></ActionItem>
+            <ActionItem text="Privacy Poilcy" android.position="popup"></ActionItem>
+            <ActionItem text="Terms for Service" android.position="popup"></ActionItem>
+            <ActionItem text="Contact Us" android.position="popup"></ActionItem>
+        </ActionBar>
+    </StackLayout>
+
+    <StackLayout row="1">
+        <GridLayout>
+            <Label text="this is the saved section" class="mm"></Label>
+        </GridLayout>
+    </StackLayout>
+
+</GridLayout>

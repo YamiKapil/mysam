@@ -1,0 +1,41 @@
+<GridLayout rows="auto,*">
+    <StackLayout row="0">
+        <ActionBar title="" backgroundcolor="white" flat="true">
+            <NavigationButton ios:visibility="collasped" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+            <Image src="res://title" stretch="aspectFit" class="top-image"></Image>
+            <ActionItem text="Settings" android.position="popup"></ActionItem>
+            <ActionItem text="Notifications" android.position="popup"></ActionItem>
+            <ActionItem text="Help" android.position="popup"></ActionItem>
+            <ActionItem text="FAQ" android.position="popup"></ActionItem>
+            <ActionItem text="About" android.position="popup"></ActionItem>
+            <ActionItem text="Privacy Poilcy" android.position="popup"></ActionItem>
+            <ActionItem text="Terms for Service" android.position="popup"></ActionItem>
+            <ActionItem text="Contact Us" android.position="popup"></ActionItem>
+        </ActionBar>
+    </StackLayout>
+
+    <StackLayout row="1" *ngIf="items!= null">
+        <TabView selectedIndex="0" selectedTabTextColor="gold" androidSelectedTabHighlightColor="gold">
+            <ng-container *ngFor="let item of home">
+                <GridLayout *tabItem="{title:item.title}">
+                    <StackLayout>
+                        <Label text="this is home tab" class="mb"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </ng-container>
+            <ng-container *ngFor="let item of alpha">
+                <GridLayout *tabItem="{title:item.title}">
+                    <StackLayout>
+                        <Label text="this is first tab" class="mb"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </ng-container>
+        </TabView>
+    </StackLayout>
+    <StackLayout row="1" *ngIf="items==null">
+        <StackLayout>
+            <Label text="No internet connection"></Label>
+        </StackLayout>
+    </StackLayout>
+
+</GridLayout>
